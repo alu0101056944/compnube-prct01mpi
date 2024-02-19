@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     ++counter;
     printf("node %d: %d\n", rank, counter);
     rc = MPI_Send(&counter, 1, MPI_INT, nextRank, tag, MPI_COMM_WORLD);
-    sleep(2);
+    sleep(1);
   }
 
   while (1) {
@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
     ++counter;
     printf("node %d: %d\n", rank, counter);
     rc = MPI_Send(&counter, 1, MPI_INT, nextRank, tag, MPI_COMM_WORLD);
-    sleep(2);
+    sleep(1);
   }
 
   rc = MPI_Finalize();

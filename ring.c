@@ -37,10 +37,12 @@ int main(int argc, char** argv) {
   }
 
   while (1) {
-    rc = MPI_Recv(&counter, 1, MPI_INT, previousRank, tag, MPI_COMM_WORLD, &status);
+    rc = MPI_Recv(&counter, 1, MPI_INT, previousRank, tag,
+        MPI_COMM_WORLD, &status);
     ++counter;
     printf("node %d: %d\n", rank, counter);
-    rc = MPI_Send(&counter, 1, MPI_INT, nextRank, tag, MPI_COMM_WORLD);
+    rc = MPI_Send(&counter, 1, MPI_INT, nextRank, tag,
+        MPI_COMM_WORLD);
     sleep(1);
   }
 
